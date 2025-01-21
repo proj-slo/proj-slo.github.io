@@ -5,7 +5,7 @@ const DEBUG = false;
 const Footer: React.FC = () => {
   return (
     <footer
-      className={cn("w-full flex flex-col p-2", {
+      className={cn("w-full flex flex-col p-2 border-t", {
         "border-2 border-yellow-500": DEBUG,
       })}
     >
