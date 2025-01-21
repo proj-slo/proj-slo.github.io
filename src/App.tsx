@@ -1,9 +1,17 @@
 import { useEffect } from "react";
 import Layout from "@/components/layout";
 import { useTheme } from "@/hooks/use-theme";
+import NotFoundPage from "@/pages/not-found-page";
+import HomePage from "@/pages/home-page";
+import ListChatsPage from "@/pages/chats/list-chats-page";
+import EditChatPage from "@/pages/chats/edit-chat-page";
+import AddChatPage from "@/pages/chats/add-chat-page";
+import Empty from "@/components/empty";
+import { useRouter } from "@/hooks/use-router";
 
 function App() {
   const { theme } = useTheme();
+  const { currentRoute, params } = useRouter();
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -21,23 +29,51 @@ function App() {
     root.classList.add(theme);
   }, [theme]);
 
-  const left = (
-    <div className="bg-blue-100 dark:bg-blue-900">
-      <h1>Left Panel</h1>
-    </div>
-  );
+  if (!currentRoute) {
+    return <NotFoundPage />;
+  }
 
-  const middle = (
-    <div className="bg-green-100 dark:bg-green-900">
-      <h1>Middle Panel</h1>
-    </div>
-  );
+  if (currentRoute === "home") {
+    return <HomePage />;
+  }
 
-  const right = (
-    <div className="bg-yellow-100 dark:bg-yellow-900">
-      <h1>Right Panel</h1>
-    </div>
-  );
+  const renderContent = () => {
+    switch (currentRoute) {
+      case "chats":
+        return {
+          left: <ListChatsPage />,
+          middle: <Empty message="Select a chat to view its messages." />,
+          right: null,
+        };
+      case "addChat":
+        return {
+          left: <ListChatsPage />,
+          middle: <AddChatPage />,
+          right: null,
+        };
+      case "editChat":
+        return {
+          left: <ListChatsPage />,
+          middle: <EditChatPage chatId={params.chatId as string} />,
+          right: null,
+        };
+      case "messages":
+        return {
+          left: <ListChatsPage />,
+          middle: null,
+          right: null,
+        };
+
+      default:
+        return {
+          left: <NotFoundPage />,
+          middle: null,
+          right: null,
+        };
+    }
+  };
+
+  const { left, middle, right } = renderContent();
 
   return (
     <Layout
