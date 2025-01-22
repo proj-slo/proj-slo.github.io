@@ -31,6 +31,14 @@ export function getChat(chatId: string) {
   return $chats.get().find((chat) => chat._id === chatId);
 }
 
+export function updateMessageCount(chatId: string, delta: number) {
+  const chat = getChat(chatId);
+  if (!chat) {
+    return;
+  }
+  updateChat({ ...chat, messageCount: chat.messageCount + delta });
+}
+
 if (DEBUG) {
   logger({ $chats });
 }
