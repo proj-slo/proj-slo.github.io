@@ -27,6 +27,7 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "katex": "^0.16.21",
     "lucide-react": "^0.471.1",
     "nanoid": "^5.0.9",
     "nanostores": "^0.11.3",
