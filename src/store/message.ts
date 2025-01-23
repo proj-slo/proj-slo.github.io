@@ -2,7 +2,7 @@ import { logger } from "@nanostores/logger";
 import { persistentAtom } from "@nanostores/persistent";
 import { MessageType } from "@/types/message";
 
-const DEBUG = true;
+const DEBUG = false;
 
 const messages: MessageType[] = [];
 
