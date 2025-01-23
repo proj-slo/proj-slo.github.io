@@ -39,7 +39,7 @@ export function useMutationMessages(chatId: string) {
       };
       addMessage(newMessage);
       updateMessageCount(chatId, 1);
-      createFakeAiMessage();
+      setTimeout(createFakeAiMessage, 500);
       return newMessage._id;
     } catch (error) {
       toast.error((error as Error).message || "Please try again later");
