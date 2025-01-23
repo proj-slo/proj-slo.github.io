@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Loading from "@/components/loading";
 import Empty from "@/components/empty";
 import Message from "@/components/messages/message";
+import { cn } from "@/lib/utils";
 
 interface MessageListProps {
   chatId: string;
@@ -115,7 +116,7 @@ const MessageList: React.FC<MessageListProps> = ({ chatId }) => {
   return (
     <div
       ref={containerRef}
-      className="h-full overflow-y-auto scroll-smooth"
+      className={cn("h-full overflow-y-auto scroll-smooth")}
       onScroll={handleOnScroll}
     >
       {messages.map((message) => (
