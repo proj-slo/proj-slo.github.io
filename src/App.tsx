@@ -81,6 +81,7 @@ function App() {
       leftPanelContent={left}
       middlePanelContent={middle}
       rightPanelContent={right}
+      className="h-screen"
     />
   );
 }
