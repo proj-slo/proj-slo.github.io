@@ -11,6 +11,8 @@ const pages = {
   chat: `${BASE_URL}/chats/:chatId`, // View a specific chat
   editChat: `${BASE_URL}/chats/:chatId/edit`, // Edit a specific chat
   messages: `${BASE_URL}/chats/:chatId/messages`, // View all messages in a specific chat
+  docs: `${BASE_URL}/docs`, // View all docs
+  note: `${BASE_URL}/note`, // View a specific note
 };
 
 export type Page = keyof typeof pages;
