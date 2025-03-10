@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       })}
     >
       <p className="text-sm text-muted-foreground font-light text-center sm:text-left">
-        Simple ChatGPT can make mistakes. Check important info.
+        This is a demo program. Please check the output for accuracy.
       </p>
     </footer>
   );

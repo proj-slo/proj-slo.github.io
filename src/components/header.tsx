@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./theme-toggle";
-import { Bot } from "lucide-react";
+import { Bot, GraduationCap } from "lucide-react";
 
 const DEBUG = false;
 
@@ -19,8 +19,8 @@ const Header: React.FC = () => {
           },
         )}
       >
-        <Bot className="w-5 h-5 mr-1" />
-        <span className="truncate">Simple ChatGPT</span>
+        <GraduationCap className="w-5 h-5 mr-1" />
+        <span className="truncate">Student Learning Outcomes Writer</span>
       </div>
       <ThemeToggle />
     </header>
