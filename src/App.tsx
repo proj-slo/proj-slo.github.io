@@ -9,6 +9,8 @@ import AddChatPage from "@/pages/chats/add-chat-page";
 import Empty from "@/components/empty";
 import { useRouter } from "@/hooks/use-router";
 import MessagesPage from "@/pages/messages/messages-page";
+import Docs from "./pages/docs";
+import Note from "./pages/note";
 
 function App() {
   const { theme } = useTheme();
@@ -62,6 +64,18 @@ function App() {
         return {
           left: <ListChatsPage />,
           middle: <MessagesPage chatId={params.chatId as string} />,
+          right: null,
+        };
+      case "docs":
+        return {
+          left: <Docs />,
+          middle: null,
+          right: null,
+        };
+      case "note": 
+        return {
+          left: <Note />,
+          middle: null,
           right: null,
         };
 
