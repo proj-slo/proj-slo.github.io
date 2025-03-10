@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useRouter } from "@/hooks/use-router";
 import { cn } from "@/lib/utils";
-import { Bot } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const DEBUG = false;
 
@@ -25,13 +25,13 @@ const HomePage: React.FC = () => {
           },
         )}
       >
-        <Bot className="w-6 h-6 mr-2" />
-        <span className="truncate">Simple ChatGPT</span>
+        <GraduationCap className="w-6 h-6 mr-2" />
+        <span className="truncate">Student LearningOutcomes</span>
       </div>
       <div>
-        This is a minimalistic clone of ChatGPT built for educational purposes.
+        This is a tool to help you create student learning outcomes.
       </div>
-      <Button onClick={() => navigate("chats")}>Get Started</Button>
+      <Button onClick={() => navigate("write")}>Get Started</Button>
     </div>
   );
 };

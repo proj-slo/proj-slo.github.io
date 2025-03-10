@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         )}
       >
         <GraduationCap className="w-5 h-5 mr-1" />
-        <span className="truncate">Student Learning Outcomes Writer</span>
+        <span className="truncate">Student Learning Outcomes</span>
       </div>
       <ThemeToggle />
     </header>
