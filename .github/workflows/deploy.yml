@@ -42,7 +42,7 @@ jobs:
         env:
           VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
           VITE_OLLAMA_HOST_URL: ${{ secrets.VITE_OLLAMA_HOST_URL }}
-          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL: ""
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
