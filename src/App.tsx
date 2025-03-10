@@ -3,14 +3,10 @@ import Layout from "@/components/layout";
 import { useTheme } from "@/hooks/use-theme";
 import NotFoundPage from "@/pages/not-found-page";
 import HomePage from "@/pages/home-page";
-import ListChatsPage from "@/pages/chats/list-chats-page";
-import EditChatPage from "@/pages/chats/edit-chat-page";
-import AddChatPage from "@/pages/chats/add-chat-page";
-import Empty from "@/components/empty";
 import { useRouter } from "@/hooks/use-router";
-import MessagesPage from "@/pages/messages/messages-page";
 import Docs from "./pages/docs";
-import Note from "./pages/note";
+import GeneratePage from "./pages/generate";
+import { WritePage } from "./pages/write";
 
 function App() {
   const { theme } = useTheme();
@@ -42,39 +38,21 @@ function App() {
 
   const renderContent = () => {
     switch (currentRoute) {
-      case "chats":
-        return {
-          left: <ListChatsPage />,
-          middle: <Empty message="Select a chat to view its messages." />,
-          right: null,
-        };
-      case "addChat":
-        return {
-          left: <ListChatsPage />,
-          middle: <AddChatPage />,
-          right: null,
-        };
-      case "editChat":
-        return {
-          left: <ListChatsPage />,
-          middle: <EditChatPage chatId={params.chatId as string} />,
-          right: null,
-        };
-      case "messages":
-        return {
-          left: <ListChatsPage />,
-          middle: <MessagesPage chatId={params.chatId as string} />,
-          right: null,
-        };
-      case "docs":
+      case "learn":
         return {
           left: <Docs />,
           middle: null,
           right: null,
         };
-      case "note": 
+      case "write":
         return {
-          left: <Note />,
+          left: <WritePage />,
+          middle: null,
+          right: null,
+        };
+      case "generate":
+        return {
+          left: <GeneratePage />,
           middle: null,
           right: null,
         };
