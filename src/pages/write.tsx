@@ -24,6 +24,9 @@ import { useOpenAI } from "@/hooks/use-openai";
 import { Task } from "@/types/tasks";
 import { toast } from "sonner";
 import Markdown from "@/components/markdown";
+import { OpenAIStreamChunk } from "@/types/stream";
+import { OllamaStreamChunk } from "@/types/stream";
+import { Model } from "@/types/models";
 
 const taxonomyIcons = {
   Create: PlusSquare,
@@ -134,11 +137,17 @@ export function WritePage() {
     [value, cursorPosition],
   );
 
-  const processStreamResponse = async (stream: AsyncIterable<any>) => {
+  const processStreamResponse = async (
+    stream: AsyncIterable<OpenAIStreamChunk | OllamaStreamChunk>,
+    modelType: Model,
+  ) => {
     setResult("");
     let fulltext = "";
     for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content;
+      const content =
+        modelType === Model.OPENAI
+          ? (chunk as OpenAIStreamChunk).choices[0]?.delta?.content
+          : (chunk as OllamaStreamChunk).message.content;
       fulltext = fulltext + (content || "");
       setResult(fulltext);
     }
@@ -153,7 +162,7 @@ export function WritePage() {
     toast.promise(
       (async () => {
         const stream = await openai_completion(value);
-        await processStreamResponse(stream);
+        await processStreamResponse(stream, Model.OPENAI);
         return "Learning outcomes improved successfully";
       })(),
       {

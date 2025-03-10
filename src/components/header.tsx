@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./theme-toggle";
-import { Bot, GraduationCap } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const DEBUG = false;
 

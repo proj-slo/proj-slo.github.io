@@ -10,7 +10,7 @@ import { WritePage } from "./pages/write";
 
 function App() {
   const { theme } = useTheme();
-  const { currentRoute, params } = useRouter();
+  const { currentRoute } = useRouter();
 
   useEffect(() => {
     const root = window.document.documentElement;

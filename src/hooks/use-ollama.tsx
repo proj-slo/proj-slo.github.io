@@ -3,6 +3,7 @@ import { ollama } from "@/lib/ollama";
 import { prompts } from "@/prompts";
 import { ChatResponse } from "ollama/browser";
 import { Task } from "@/types/tasks";
+import type { AbortableAsyncIterator } from "ollama";
 
 export const useOllama = (task: Task) => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ export const useOllama = (task: Task) => {
     text: string,
     context?: string,
     instruction?: string,
-  ): Promise<AsyncIterator<ChatResponse> & { abort: () => void }> => {
+  ): Promise<AbortableAsyncIterator<ChatResponse>> => {
     try {
       setLoading(true);
       const response = await ollama.chat({
