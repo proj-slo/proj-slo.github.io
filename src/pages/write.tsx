@@ -162,6 +162,7 @@ export function WritePage() {
     toast.promise(
       (async () => {
         const stream = await openai_completion(value);
+        // @ts-ignore
         await processStreamResponse(stream, Model.OPENAI);
         return "Learning outcomes improved successfully";
       })(),

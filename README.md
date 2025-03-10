@@ -1,6 +1,6 @@
-# Simple ChatGPT
+# Student Learning Outcomes Generator
 
-This is a simple and minimalistic version of ChatGPT built for educational purposes.
+This is a simple and minimalistic application that generates student learning outcomes based on a given topic. 
 
 ## OpenAI API
 
@@ -8,10 +8,7 @@ This project uses the OpenAI API. You need to create an account and get an API k
 
 ## Run locally
 
-```bash
-cd simple-chatgpt
-pnpm install
-pnpm dev
-```
-
-Open the browser and navigate to <http://localhost:5173/>. Click on the gear icon to open the settings and enter your API key.
+- Clone the repository
+- Install dependencies
+- Run the application
+- Open the browser and navigate to <http://localhost:5173/>.

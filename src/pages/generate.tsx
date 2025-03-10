@@ -56,6 +56,7 @@ export default function GeneratePage() {
           generateData.context,
           generateData.instruction,
         );
+        // @ts-ignore
         await processStreamResponse(stream, model);
         return "Text generated successfully";
       })(),
