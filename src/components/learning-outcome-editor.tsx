@@ -1,14 +1,14 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from "react";
 import {
   Command,
   CommandInput,
   CommandList,
   CommandGroup,
   CommandItem,
-} from '@/components/ui/command';
-import { Textarea } from '@/components/ui/textarea';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { bloomTaxonomy } from '@/lib/bloom-taxonomy';
+} from "@/components/ui/command";
+import { Textarea } from "@/components/ui/textarea";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { bloomTaxonomy } from "@/lib/bloom-taxonomy";
 import {
   Brain,
   Lightbulb,
@@ -16,7 +16,7 @@ import {
   Search,
   CheckSquare,
   PlusSquare,
-} from 'lucide-react';
+} from "lucide-react";
 
 const taxonomyIcons = {
   Create: PlusSquare,
@@ -29,28 +29,28 @@ const taxonomyIcons = {
 
 const taxonomyStyles = {
   Create: {
-    bg: 'bg-purple-50 dark:bg-purple-950/30',
-    text: 'text-purple-500 dark:text-purple-400',
+    bg: "bg-purple-50 dark:bg-purple-950/30",
+    text: "text-purple-500 dark:text-purple-400",
   },
   Evaluate: {
-    bg: 'bg-blue-50 dark:bg-blue-950/30',
-    text: 'text-blue-500 dark:text-blue-400',
+    bg: "bg-blue-50 dark:bg-blue-950/30",
+    text: "text-blue-500 dark:text-blue-400",
   },
   Analyze: {
-    bg: 'bg-cyan-50 dark:bg-cyan-950/30',
-    text: 'text-cyan-500 dark:text-cyan-400',
+    bg: "bg-cyan-50 dark:bg-cyan-950/30",
+    text: "text-cyan-500 dark:text-cyan-400",
   },
   Apply: {
-    bg: 'bg-green-50 dark:bg-green-950/30',
-    text: 'text-green-500 dark:text-green-400',
+    bg: "bg-green-50 dark:bg-green-950/30",
+    text: "text-green-500 dark:text-green-400",
   },
   Understand: {
-    bg: 'bg-amber-50 dark:bg-amber-950/30',
-    text: 'text-amber-500 dark:text-amber-400',
+    bg: "bg-amber-50 dark:bg-amber-950/30",
+    text: "text-amber-500 dark:text-amber-400",
   },
   Remember: {
-    bg: 'bg-red-50 dark:bg-red-950/30',
-    text: 'text-red-500 dark:text-red-400',
+    bg: "bg-red-50 dark:bg-red-950/30",
+    text: "text-red-500 dark:text-red-400",
   },
 } as const;
 
@@ -64,23 +64,23 @@ const taxonomyLevels = {
 } as const;
 
 export function LearningOutcomeEditor() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [showCommand, setShowCommand] = useState(false);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [cursorPosition, setCursorPosition] = useState<number | null>(null);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && showCommand) {
+      if (e.key === "Escape" && showCommand) {
         setShowCommand(false);
-        setSearch('');
+        setSearch("");
         textareaRef.current?.focus();
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [showCommand]);
 
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -88,35 +88,38 @@ export function LearningOutcomeEditor() {
     setValue(newValue);
 
     const lastChar = newValue.charAt(e.target.selectionStart - 1);
-    if (lastChar === '/') {
+    if (lastChar === "/") {
       setShowCommand(true);
       setCursorPosition(e.target.selectionStart);
     }
   };
 
-  const insertVerb = useCallback((verb: string) => {
-    if (cursorPosition === null || !textareaRef.current) return;
+  const insertVerb = useCallback(
+    (verb: string) => {
+      if (cursorPosition === null || !textareaRef.current) return;
 
-    const before = value.slice(0, cursorPosition - 1); // Remove the '/'
-    const after = value.slice(cursorPosition);
-    const newValue = before + verb + ' ' + after;
-    
-    setValue(newValue);
-    setShowCommand(false);
-    setSearch('');
+      const before = value.slice(0, cursorPosition - 1); // Remove the '/'
+      const after = value.slice(cursorPosition);
+      const newValue = before + verb + " " + after;
 
-    // Calculate new cursor position
-    const newPosition = cursorPosition - 1 + verb.length + 1;
-    
-    // Focus and set cursor position
-    textareaRef.current.focus();
-    setTimeout(() => {
-      if (textareaRef.current) {
-        textareaRef.current.selectionStart = newPosition;
-        textareaRef.current.selectionEnd = newPosition;
-      }
-    }, 0);
-  }, [value, cursorPosition]);
+      setValue(newValue);
+      setShowCommand(false);
+      setSearch("");
+
+      // Calculate new cursor position
+      const newPosition = cursorPosition - 1 + verb.length + 1;
+
+      // Focus and set cursor position
+      textareaRef.current.focus();
+      setTimeout(() => {
+        if (textareaRef.current) {
+          textareaRef.current.selectionStart = newPosition;
+          textareaRef.current.selectionEnd = newPosition;
+        }
+      }, 0);
+    },
+    [value, cursorPosition],
+  );
 
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4">
@@ -125,10 +128,10 @@ export function LearningOutcomeEditor() {
           ref={textareaRef}
           value={value}
           onChange={handleTextareaChange}
-          placeholder="Type '/' to access Bloom's Taxonomy verbs..."
-          className="min-h-[200px] text-lg leading-relaxed"
+          placeholder="Write your learning outcome(s) here..."
+          className="min-h-[300px] md:text-xl leading-relaxed"
         />
-        
+
         {showCommand && (
           <div className="absolute bottom-0 left-0 right-0 transform translate-y-full z-50">
             <Command className="rounded-lg border shadow-md">
@@ -141,25 +144,30 @@ export function LearningOutcomeEditor() {
               <CommandList>
                 <ScrollArea className="h-[300px]">
                   {Object.entries(bloomTaxonomy).map(([level, verbs]) => {
-                    const Icon = taxonomyIcons[level as keyof typeof taxonomyIcons];
-                    const styles = taxonomyStyles[level as keyof typeof taxonomyStyles];
-                    const taxonomyLevel = taxonomyLevels[level as keyof typeof taxonomyLevels];
-                    const filteredVerbs = verbs.filter(verb =>
-                      verb.toLowerCase().includes(search.toLowerCase())
+                    const Icon =
+                      taxonomyIcons[level as keyof typeof taxonomyIcons];
+                    const styles =
+                      taxonomyStyles[level as keyof typeof taxonomyStyles];
+                    const taxonomyLevel =
+                      taxonomyLevels[level as keyof typeof taxonomyLevels];
+                    const filteredVerbs = verbs.filter((verb) =>
+                      verb.toLowerCase().includes(search.toLowerCase()),
                     );
 
                     if (filteredVerbs.length === 0) return null;
 
                     return (
-                      <CommandGroup 
-                        key={level} 
+                      <CommandGroup
+                        key={level}
                         heading={
                           <div className="flex items-center gap-2">
-                            <span>Level {taxonomyLevel}: {level}</span>
+                            <span>
+                              Level {taxonomyLevel}: {level}
+                            </span>
                           </div>
                         }
                       >
-                        {filteredVerbs.map(verb => (
+                        {filteredVerbs.map((verb) => (
                           <CommandItem
                             key={verb}
                             onSelect={() => insertVerb(verb)}
@@ -177,10 +185,6 @@ export function LearningOutcomeEditor() {
             </Command>
           </div>
         )}
-      </div>
-      
-      <div className="text-sm text-muted-foreground">
-        <p>Type '/' to access Bloom's Taxonomy verbs. Use arrow keys to navigate, Enter to select, and Escape to close.</p>
       </div>
     </div>
   );
