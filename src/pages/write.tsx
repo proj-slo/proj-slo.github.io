@@ -172,9 +172,7 @@ export function WritePage() {
   return (
     <ScrollArea className="h-full overflow-y-auto">
       <div className="max-w-2xl mx-auto m-4 py-12 p-6">
-        <div
-          className="relative"
-        >
+        <div className="relative">
           <Textarea
             ref={textareaRef}
             value={value}
@@ -183,7 +181,7 @@ export function WritePage() {
             className="min-h-[300px] md:text-xl leading-relaxed"
           />
 
-          <div 
+          <div
             className="absolute top-0 right-0 w-10 h-10"
             onMouseEnter={() => setShowImproveButton(true)}
             onMouseLeave={() => setShowImproveButton(false)}

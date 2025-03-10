@@ -9,10 +9,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <TooltipProvider>
       <App />
-      <Toaster
-        richColors
-        position="top-center"
-      />
+      <Toaster richColors position="top-center" />
     </TooltipProvider>
   </StrictMode>,
 );

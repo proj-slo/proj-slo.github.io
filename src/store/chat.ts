@@ -21,9 +21,9 @@ export function removeChat(chatId: string) {
 
 export function updateChat(updatedChat: ChatType) {
   $chats.set(
-    $chats.get().map((chat) =>
-      chat._id === updatedChat._id ? updatedChat : chat
-    )
+    $chats
+      .get()
+      .map((chat) => (chat._id === updatedChat._id ? updatedChat : chat)),
   );
 }
 

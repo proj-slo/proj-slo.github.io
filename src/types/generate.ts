@@ -3,4 +3,4 @@ export interface GenerateData {
   context: string;
   instruction: string;
   result: string;
-} 
+}

@@ -21,9 +21,9 @@ export function removeMessage(chatId: string) {
 
 export function updateMessage(updatedChat: MessageType) {
   $messages.set(
-    $messages.get().map((chat) =>
-      chat._id === updatedChat._id ? updatedChat : chat
-    )
+    $messages
+      .get()
+      .map((chat) => (chat._id === updatedChat._id ? updatedChat : chat)),
   );
 }
 

@@ -15,7 +15,10 @@ const Markdown: React.FC<MarkdownProps> = ({ content, className }) => {
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkMath]}
       rehypePlugins={[rehypeKatex]}
-      className={cn("prose prose-stone prose-sm sm:prose-base md:prose-lg lg:prose-xl dark:prose-invert", className)}
+      className={cn(
+        "prose prose-stone prose-sm sm:prose-base md:prose-lg lg:prose-xl dark:prose-invert",
+        className,
+      )}
       children={content}
       components={{}}
     />

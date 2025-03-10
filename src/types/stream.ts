@@ -1,9 +1,11 @@
 export type OpenAIStreamChunk = {
-  choices: [{
-    delta: {
-      content?: string;
-    };
-  }];
+  choices: [
+    {
+      delta: {
+        content?: string;
+      };
+    },
+  ];
 };
 
 export type OllamaStreamChunk = {

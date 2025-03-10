@@ -1,4 +1,8 @@
-import { $generateData, setGenerateData, clearGenerateData } from "@/store/generate";
+import {
+  $generateData,
+  setGenerateData,
+  clearGenerateData,
+} from "@/store/generate";
 import { useStore } from "@nanostores/react";
 import { GenerateData } from "@/types/generate";
 
@@ -14,4 +18,4 @@ export const useGenerate = () => {
     updateGenerateData,
     clearGenerateData,
   };
-}; 
+};

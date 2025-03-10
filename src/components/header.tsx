@@ -7,9 +7,12 @@ const DEBUG = false;
 const Header: React.FC = () => {
   return (
     <header
-      className={cn("flex items-center justify-between gap-1 w-full py-1 border-b", {
-        "border-2 border-green-500": DEBUG,
-      })}
+      className={cn(
+        "flex items-center justify-between gap-1 w-full py-1 border-b",
+        {
+          "border-2 border-green-500": DEBUG,
+        },
+      )}
     >
       <div
         className={cn(

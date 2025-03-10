@@ -127,7 +127,7 @@ export default function GeneratePage() {
           </div>
 
           {result && (
-            <div 
+            <div
               className="mt-8 p-6 border rounded-lg relative"
               onMouseEnter={() => setShowCopyButton(true)}
               onMouseLeave={() => setShowCopyButton(false)}

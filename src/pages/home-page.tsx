@@ -28,9 +28,7 @@ const HomePage: React.FC = () => {
         <GraduationCap className="w-6 h-6 mr-2" />
         <span className="truncate">Student LearningOutcomes</span>
       </div>
-      <div>
-        This is a tool to help you create student learning outcomes.
-      </div>
+      <div>This is a tool to help you create student learning outcomes.</div>
       <Button onClick={() => navigate("write")}>Get Started</Button>
     </div>
   );

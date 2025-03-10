@@ -91,8 +91,7 @@ const Chat: React.FC<Partial<ChatType>> = ({
           className={cn("p-1", {
             "border-2 border-green-500": DEBUG,
           })}
-        >
-        </div>
+        ></div>
         {DEBUG && <Badge>{_id}</Badge>}
       </div>
     </AspectRatio>

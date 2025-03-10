@@ -17,7 +17,7 @@ export const $generateData = persistentAtom<GenerateData>(
   {
     encode: JSON.stringify,
     decode: JSON.parse,
-  }
+  },
 );
 
 export function setGenerateData(data: Partial<GenerateData>) {
@@ -33,4 +33,4 @@ export function clearGenerateData() {
 
 if (DEBUG) {
   logger({ $generateData });
-} 
+}

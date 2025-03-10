@@ -14,11 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import {
-  formFields,
-  formSchema,
-  defaultValues,
-} from "./form-config";
+import { formFields, formSchema, defaultValues } from "./form-config";
 
 interface ChatFormProps {
   onSubmit: (values: z.infer<typeof formSchema>) => void;
