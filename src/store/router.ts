@@ -6,20 +6,16 @@ const DEBUG = false;
 
 const pages = {
   home: `${BASE_URL}/`, // Home page
-  chats: `${BASE_URL}/chats`, // Chat page
-  addChat: `${BASE_URL}/chats/add`, // Add a new chat
-  chat: `${BASE_URL}/chats/:chatId`, // View a specific chat
-  editChat: `${BASE_URL}/chats/:chatId/edit`, // Edit a specific chat
-  messages: `${BASE_URL}/chats/:chatId/messages`, // View all messages in a specific chat
   learn: `${BASE_URL}/learn`, // View all docs
   write: `${BASE_URL}/write`, // View the write page
   generate: `${BASE_URL}/gen`, // View the generate page
+  share: `${BASE_URL}/share`, // View the share page
 };
 
 export type Page = keyof typeof pages;
 
 export type Params = {
-  chatId?: string;
+  resourceId?: string; // This not used right now
 };
 
 export const $router = createRouter(pages);
