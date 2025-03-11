@@ -4,9 +4,10 @@ import { useTheme } from "@/hooks/use-theme";
 import NotFoundPage from "@/pages/not-found-page";
 import HomePage from "@/pages/home-page";
 import { useRouter } from "@/hooks/use-router";
-import Docs from "./pages/docs";
+import Learn from "./pages/learn";
 import GeneratePage from "./pages/generate";
 import { WritePage } from "./pages/write";
+import SharePage from "./pages/share";
 
 function App() {
   const { theme } = useTheme();
@@ -36,11 +37,15 @@ function App() {
     return <HomePage />;
   }
 
+  if (currentRoute === "share") {
+    return <SharePage />;
+  }
+
   const renderContent = () => {
     switch (currentRoute) {
       case "learn":
         return {
-          left: <Docs />,
+          left: <Learn />,
           middle: null,
           right: null,
         };
