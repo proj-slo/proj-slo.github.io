@@ -94,7 +94,7 @@ Synthesize information from various sources to create new ideas, products, or so
 
 `;
 
-const Docs = () => {
+const Learn = () => {
   return (
     <ScrollArea className="h-full overflow-y-auto">
       <div className="max-w-2xl mx-auto m-4 py-12 p-6">
@@ -104,4 +104,4 @@ const Docs = () => {
   );
 };
 
-export default Docs;
+export default Learn;
