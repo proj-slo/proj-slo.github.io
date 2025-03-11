@@ -84,7 +84,7 @@ export default function GeneratePage() {
             <Label htmlFor="topic">Topic (Required)</Label>
             <Input
               id="topic"
-              placeholder="Enter a topic (e.g., Photosynthesis, JavaScript Basics)"
+              placeholder="Enter a topic (e.g., Photosynthesis, JavaScript Conditional Statements)"
               value={topic}
               onChange={(e) => updateGenerateData({ topic: e.target.value })}
             />

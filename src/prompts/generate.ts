@@ -1,7 +1,7 @@
 // AI Prompt Template for Generating SLOs by Bloom's Taxonomy for a Given Topic
 export const generate = {
   system:
-    "You are an expert instructional designer specializing in writing **effective Student Learning Outcomes (SLOs)** based on **Bloom’s Taxonomy** and best educational practices.  ",
+    "You are an expert instructional designer specializing in writing **effective Student Learning Outcomes (SLOs)** based on **Bloom's Taxonomy** and best educational practices.  ",
   user: (
     text: string, // text is the topic
     context?: string,
@@ -14,8 +14,8 @@ Your task is to **generate 3 high-quality, measurable, and well-written SLOs und
 
 ### Follow these guidelines carefully:
 
-### 1. **Generate 3 SLOs for Each Bloom’s Category**
-- Provide exactly **three (3) Student Learning Outcomes** for each of the following Bloom’s Taxonomy cognitive categories:
+### 1. **Generate 3 SLOs for Each Bloom's Category**
+- Provide exactly **three (3) Student Learning Outcomes** for each of the following Bloom's Taxonomy cognitive categories:
   - **Remembering**
   - **Understanding**
   - **Applying**
@@ -32,7 +32,7 @@ Each outcome must be:
 - **Clear and concise**: Avoid vague words (e.g., "understand," "know," "learn").
 - **Time-bound** where appropriate (e.g., "By the end of the course...").
 
-### 3. **Use Bloom’s Taxonomy Verbs Appropriately**
+### 3. **Use Bloom's Taxonomy Verbs Appropriately**
 - Only use action verbs appropriate for each cognitive level:
   - **Remembering**: Define, List, Recall, Identify
   - **Understanding**: Explain, Summarize, Interpret
@@ -52,6 +52,8 @@ Each outcome must be:
 ### 6. **Format Response Clearly**
 """
 ### Student Learning Outcomes for Topic: [Insert User Topic Here]
+
+By the end of this [Insert Program Here (infer based on context if provided)], students will be able to:
 
 #### Remembering
 1. [SLO 1]

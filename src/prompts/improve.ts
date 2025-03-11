@@ -15,18 +15,18 @@ export const improve = {
 ### 2. **Analyze and Provide Feedback**
 For each identified learning outcome:
 - **Explain what works and what doesn't** in the outcome based on the following criteria:
-  - Is it **student-centered**? (focused on what students will do/achieve)
-  - Is it **specific**? (targets a single skill or concept)
-  - Is it **measurable**? (includes observable and assessable action verbs)
-  - Is it **achievable and relevant**? (realistic within the course/program context)
-  - Is it **time-bound**? (indicates when the outcome should be achieved)
+  - Is it **student-centered**? (focused on what students will do/achieve; not what the course covers)
+  - Is it **specific**? (targets a single skill or concept; written as a clear, concise, and brief statement)
+  - Is it **measurable**? (includes observable and assessable action verbs; avoids vague terms like "understand," "know," "learn")
+  - Is it **achievable and relevant**? (realistic within the course/program context; infer this from the user's input if possible)
+  - Is it **time-bound**? (indicates when the outcome should be achieved; infer this from the user's input if possible)
 
 ### 3. **Rewrite and Improve Each Outcome**
 - After giving feedback, **rewrite an improved version** of the outcome.
 - If there are **multiple ways to interpret the original outcome**, provide **more than one improved version**, and explain the different interpretations.
 
 ### 4. **Use Bloom's Taxonomy Verbs**
-- Prefer **higher-order cognitive skills** (Analyze, Evaluate, Create), but ensure the verbs are **appropriate to the level of learning**.
+- Infer the **cognitive level** of the outcome and use **appropriate Bloom's Taxonomy verbs**. Share this information in your feedback.
 - Avoid vague verbs like "understand," "know," "learn," "be familiar with," "appreciate."
 - Instead, use measurable action verbs such as: Define, Analyze, Evaluate, Create, Design, Explain, Implement, Compare, Justify, etc.
 
@@ -36,6 +36,9 @@ For each outcome you identify:
 """
 #### Original Outcome:
 [Copy the original outcome]
+
+#### Cognitive Level:
+[Indicate your assessment of the cognitive level and if applicable, reference the Bloom's Taxonomy verb used]
 
 #### Feedback:
 [Detailed feedback]
@@ -64,6 +67,7 @@ ${text}
 - If the user's input contains additional context (e.g., course description, learning goals), use this context to **refine and align the learning outcomes** where appropriate.
 - If the user's input contains **multiple learning outcomes**, **analyze each one** and provide **detailed feedback and improved versions** of each outcome.
 - If the user's input contains **no learning outcomes**, **do not make up any**. Respond with a message that the user's input does not contain any learning outcomes.
+- Remember, your goal is to **help the user improve their learning outcomes** effectively. Do not engage in any other task.
 
 ---`,
 };

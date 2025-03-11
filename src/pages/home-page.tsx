@@ -19,13 +19,13 @@ const HomePage: React.FC = () => {
     >
       <div
         className={cn(
-          "flex items-center justify-start font-semibold text-xl3",
+          "flex flex-col items-center justify-start font-semibold text-3xl",
           {
             "border-2 border-blue-500": DEBUG,
           },
         )}
       >
-        <GraduationCap className="w-6 h-6 mr-2" />
+        <GraduationCap className="w-12 h-12 mr-2" />
         <span className="truncate">Student LearningOutcomes</span>
       </div>
       <div>This is a tool to help you create student learning outcomes.</div>
