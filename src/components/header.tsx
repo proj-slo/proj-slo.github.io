@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./theme-toggle";
-import { GraduationCap } from "lucide-react";
-
+import { GraduationCap, Home } from "lucide-react";
+import { useRouter } from "@/hooks/use-router";
 const DEBUG = false;
 
 const Header: React.FC = () => {
+  const { navigate } = useRouter();
+
   return (
     <header
       className={cn(
@@ -22,8 +24,10 @@ const Header: React.FC = () => {
           },
         )}
       >
-        <GraduationCap className="w-5 h-5 mr-1" />
-        <span className="truncate">Student Learning Outcomes</span>
+        <Home
+          className="w-4 h-4 mr-1 cursor-pointer"
+          onClick={() => navigate("home")}
+        />
       </div>
       <ThemeToggle />
     </header>
