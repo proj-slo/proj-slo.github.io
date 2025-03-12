@@ -21,24 +21,27 @@ const SharePage: React.FC = () => {
     >
       <pre
         className={cn(
-          "flex items-center justify-start font-semibold text-3xl",
+          "flex items-center justify-start font-semibold md:text-3xl cursor-pointer hover:underline-offset-4",
           {
             "border-2 border-blue-500": DEBUG,
           },
         )}
+        onClick={() => navigate("home")}
       >
         {shareUrl}
       </pre>
-      
+
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <QRCode 
+        <QRCode
           value={shareUrl}
           size={256}
           style={{ height: "auto", maxWidth: "100%", width: "100%" }}
         />
       </div>
-      
-      <p className="text-sm text-gray-500 mt-2">Scan this QR code to visit the site</p>
+
+      <p className="text-sm text-gray-500 mt-2">
+        Scan this QR code to visit the site
+      </p>
     </div>
   );
 };
