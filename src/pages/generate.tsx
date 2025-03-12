@@ -13,7 +13,8 @@ import { toast } from "sonner";
 import { Task } from "@/types/tasks";
 import Markdown from "@/components/markdown";
 import { useState } from "react";
-import { ClipboardCopy } from "lucide-react";
+import { ClipboardCopy, MoveLeft, MoveRight } from "lucide-react";
+import SettingsDialog from "@/components/settings-dialog";
 
 export default function GeneratePage() {
   const { generateData, updateGenerateData, clearGenerateData } = useGenerate();
@@ -76,6 +77,14 @@ export default function GeneratePage() {
   return (
     <ScrollArea className="h-full overflow-y-auto">
       <div className="max-w-2xl mx-auto m-4 py-12 p-6">
+        <div className="flex flex-row items-center justify-end gap-4 mb-12">
+          <span className="text-sm text-muted-foreground">
+            You should use your own OpenAI API key to use this feature. <br />
+            Click on the gear icon to set your API key.
+          </span>
+          <MoveRight className="w-4 h-4 text-muted-foreground" />
+          <SettingsDialog />{" "}
+        </div>
         <h1 className="text-2xl font-bold mb-6">
           Generate Student Learning Outcomes
         </h1>
