@@ -18,6 +18,7 @@ import {
   PlusSquare,
   Sparkles,
   ClipboardCopy,
+  MoveLeft,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useOpenAI } from "@/hooks/use-openai";
@@ -27,6 +28,7 @@ import Markdown from "@/components/markdown";
 import { OpenAIStreamChunk } from "@/types/stream";
 import { OllamaStreamChunk } from "@/types/stream";
 import { Model } from "@/types/models";
+import SettingsDialog from "@/components/settings-dialog";
 
 const taxonomyIcons = {
   Create: PlusSquare,
@@ -164,10 +166,10 @@ export function WritePage() {
         const stream = await openai_completion(value);
         // @ts-ignore
         await processStreamResponse(stream, Model.OPENAI);
-        return "Learning outcomes improved successfully";
+        return "Learning outcomes reviewed successfully";
       })(),
       {
-        loading: "Improving learning outcomes...",
+        loading: "Reviewing learning outcomes...",
         success: (message) => message,
         error: (error) => error.message,
       },
@@ -182,33 +184,39 @@ export function WritePage() {
   return (
     <ScrollArea className="h-full overflow-y-auto">
       <div className="max-w-2xl mx-auto m-4 py-12 p-6">
+        <div className="flex flex-row items-center gap-4 mb-4">
+          <SettingsDialog />{" "}
+          <MoveLeft className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">
+            You should use your own OpenAI API key to use this feature. <br />
+            Click on the gear icon to set your API key.
+          </span>
+        </div>
+        <div className="flex flex-row items-center gap-4 mb-4">
+          <Button
+            size="icon"
+            variant="ghost"
+            className=""
+            onClick={improveOutcomes}
+            disabled={openai_loading || !value.trim()}
+            title="Improve with AI"
+          >
+            <Sparkles className="h-4 w-4" />
+          </Button>
+          <MoveLeft className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">
+            Write your learning outcomes below and then click on the sparkles
+            button to get feedback and suggestions from AI.
+          </span>
+        </div>
         <div className="relative">
           <Textarea
             ref={textareaRef}
             value={value}
             onChange={handleTextareaChange}
-            placeholder="Write your learning outcome(s) here..."
-            className="min-h-[300px] md:text-xl leading-relaxed"
+            placeholder="By the end of this lesson, students will be able to..."
+            className="min-h-[300px] md:text-xl leading-relaxed pr-12"
           />
-
-          <div
-            className="absolute top-0 right-0 w-10 h-10"
-            onMouseEnter={() => setShowImproveButton(true)}
-            onMouseLeave={() => setShowImproveButton(false)}
-          >
-            {showImproveButton && (
-              <Button
-                size="icon"
-                variant="ghost"
-                className="absolute top-2 right-2 h-8 w-8"
-                onClick={improveOutcomes}
-                disabled={openai_loading || !value.trim()}
-                title="Improve with AI"
-              >
-                <Sparkles className="h-4 w-4" />
-              </Button>
-            )}
-          </div>
 
           {showCommand && (
             <div className="absolute bottom-0 left-0 right-0 transform translate-y-full z-50">
@@ -263,6 +271,13 @@ export function WritePage() {
               </Command>
             </div>
           )}
+        </div>
+
+        <div className="text-sm text-muted-foreground mt-4">
+          <p>
+            Type '/' to access Bloom's Taxonomy verbs. Use arrow keys to
+            navigate, Enter to select, and Escape to close.
+          </p>
         </div>
 
         {result && (
