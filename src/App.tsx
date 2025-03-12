@@ -4,10 +4,9 @@ import { useTheme } from "@/hooks/use-theme";
 import NotFoundPage from "@/pages/not-found-page";
 import HomePage from "@/pages/home-page";
 import { useRouter } from "@/hooks/use-router";
-import Learn from "./pages/learn";
-import GeneratePage from "./pages/generate";
-import { WritePage } from "./pages/write";
-import SharePage from "./pages/share";
+import GeneratePage from "@/pages/generate";
+import { WritePage } from "@/pages/write";
+import SharePage from "@/pages/share";
 
 function App() {
   const { theme } = useTheme();
@@ -33,19 +32,15 @@ function App() {
     return <NotFoundPage />;
   }
 
-  if (currentRoute === "home") {
-    return <HomePage />;
-  }
-
   if (currentRoute === "share") {
     return <SharePage />;
   }
 
   const renderContent = () => {
     switch (currentRoute) {
-      case "learn":
+      case "home":
         return {
-          left: <Learn />,
+          left: <HomePage />,
           middle: null,
           right: null,
         };
