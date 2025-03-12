@@ -5,13 +5,19 @@ const DEBUG = false;
 const Footer: React.FC = () => {
   return (
     <footer
-      className={cn("w-full flex flex-col p-2 border-t", {
+      className={cn("w-full flex items-center p-2 border-t", {
         "border-2 border-yellow-500": DEBUG,
       })}
     >
-      <p className="text-sm text-muted-foreground font-light text-center sm:text-left">
-        This is a demo program. Please check the output for accuracy.
-      </p>
+      <div className="text-sm text-muted-foreground ">
+        This project is open source. Check out the code on{" "}
+        <a href="https://github.com/proj-slo/proj-slo.github.io"
+          className="underline"
+        >
+          GitHub
+        </a>
+        .
+      </div>
     </footer>
   );
 };
