@@ -6,10 +6,9 @@ const DEBUG = false;
 
 const pages = {
   home: `${BASE_URL}/`, // Home page
-  learn: `${BASE_URL}/learn`, // View all docs
-  write: `${BASE_URL}/write`, // View the write page
-  generate: `${BASE_URL}/gen`, // View the generate page
-  share: `${BASE_URL}/share`, // View the share page
+  write: `${BASE_URL}/write`, // SOL Editor
+  generate: `${BASE_URL}/gen`, // SOL Generator
+  share: `${BASE_URL}/share`, // Share this app
 };
 
 export type Page = keyof typeof pages;
